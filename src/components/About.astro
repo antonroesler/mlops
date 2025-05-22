@@ -1,0 +1,130 @@
+---
+---
+
+<section id="about" class="section about">
+  <h2 class="section-title">About Me</h2>
+  <div class="about-content">
+    <div class="bio">
+      <p>
+        Hi, I'm Anton Roesler, an MLOps Engineer focused on building scalable machine learning systems.
+        I help organizations bridge the gap between data science and production-ready ML applications.
+      </p>
+      <p>
+        With experience in both software engineering and machine learning, I specialize in creating
+        robust pipelines that enable teams to deploy models efficiently and reliably.
+      </p>
+    </div>
+    
+    <div class="expertise">
+      <h3>Areas of Expertise</h3>
+      <ul class="expertise-list">
+        <li class="expertise-item">
+          <div class="expertise-icon">🔄</div>
+          <div class="expertise-text">
+            <h4>CI/CD for ML</h4>
+            <p>Automated testing and deployment of machine learning models</p>
+          </div>
+        </li>
+        <li class="expertise-item">
+          <div class="expertise-icon">📊</div>
+          <div class="expertise-text">
+            <h4>Model Monitoring</h4>
+            <p>Real-time tracking of model performance and data drift</p>
+          </div>
+        </li>
+        <li class="expertise-item">
+          <div class="expertise-icon">🔧</div>
+          <div class="expertise-text">
+            <h4>ML Infrastructure</h4>
+            <p>Scalable architectures for training and inference</p>
+          </div>
+        </li>
+        <li class="expertise-item">
+          <div class="expertise-icon">🐳</div>
+          <div class="expertise-text">
+            <h4>Containerization</h4>
+            <p>Docker-based workflows for reproducible ML</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--space-5) 0;
+  }
+
+  .section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--space-4);
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-accent);
+  }
+
+  .about-content {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .bio p {
+    font-size: 1.1rem;
+  }
+
+  .expertise h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .expertise-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .expertise-item {
+    display: flex;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  .expertise-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .expertise-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .expertise-text h4 {
+    margin-bottom: var(--space-1);
+    color: var(--color-text-primary);
+  }
+
+  .expertise-text p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .expertise-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,20 @@
+{
+  "name": "antonroesler-portfolio",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "prismjs": "^1.29.0",
+    "@astrojs/markdown-remark": "^4.3.0",
+    "@astrojs/mdx": "^2.1.1"
+  },
+  "devDependencies": {
+    "astro": "^4.5.5"
+  }
+}
