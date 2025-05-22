@@ -5,21 +5,28 @@
   <h2 class="section-title">About Me</h2>
   <div class="about-content">
     <div class="bio">
-      <p>
-        Hi, I'm Anton Roesler — an MLOps Engineer and Software Developer with a passion for building robust and scalable machine learning systems that work in the real world.
-      </p>
-      <p>
-        In my role at Bosch, I've worked across a wide range of machine learning use cases — helping product teams and data scientists move from experimentation to production-ready ML applications. My focus is on engineering solutions that don't just run in notebooks — but operate reliably at scale, in the cloud, under real-world conditions.
-      </p>
-      <p>
-        From designing end-to-end ML pipelines and orchestrating workflows, to deploying multimodal inference services in production — I focus on practical and maintainable architectures. My experience includes timeseries, image-based, and sensor fusion use cases, especially in industrial and engineering domains.
-      </p>
-      <p>
-        I work best when collaborating closely with teams — translating use case requirements into clean, tested, and monitored ML services. I value simplicity, clear responsibilities, and measurable outcomes.
-      </p>
-      <p>
-        While I'm currently a solo engineer, I bring a strong generalist mindset, from infrastructure and backend development to ML modeling and CI/CD automation. I don't pretend to be a one-stop-shop — but if you're looking for someone who understands the complexities of ML systems and enjoys building software that lasts, we might be a good fit.
-      </p>
+      <div class="initial-content">
+        <p>
+          Hi, I'm Anton Roesler — an MLOps Engineer and Software Developer with a passion for building robust and scalable machine learning systems that work in the real world.
+        </p>
+        <p>
+          In my role at Bosch, I've worked across a wide range of machine learning use cases — helping product teams and data scientists move from experimentation to production-ready ML applications. My focus is on engineering solutions that don't just run in notebooks — but operate reliably at scale, in the cloud, under real-world conditions.
+        </p>
+      </div>
+      
+      <div class="expanded-content" style="display: none;">
+        <p>
+          From designing end-to-end ML pipelines and orchestrating workflows, to deploying multimodal inference services in production — I focus on practical and maintainable architectures. My experience includes timeseries, image-based, and sensor fusion use cases, especially in industrial and engineering domains.
+        </p>
+        <p>
+          I work best when collaborating closely with teams — translating use case requirements into clean, tested, and monitored ML services. I value simplicity, clear responsibilities, and measurable outcomes.
+        </p>
+        <p>
+          While I'm currently a solo engineer, I bring a strong generalist mindset, from infrastructure and backend development to ML modeling and CI/CD automation. I don't pretend to be a one-stop-shop — but if you're looking for someone who understands the complexities of ML systems and enjoys building software that lasts, we might be a good fit.
+        </p>
+      </div>
+      
+      <button class="read-more-btn">Read More</button>
     </div>
     
     <div class="expertise">
@@ -58,6 +65,21 @@
   </div>
 </section>
 
+<script>
+  document.querySelector('.read-more-btn')?.addEventListener('click', function(e) {
+    const btn = e.target as HTMLButtonElement;
+    const expandedContent = document.querySelector('.expanded-content') as HTMLElement;
+    
+    if (expandedContent.style.display === 'none') {
+      expandedContent.style.display = 'block';
+      btn.textContent = 'Show Less';
+    } else {
+      expandedContent.style.display = 'none';
+      btn.textContent = 'Read More';
+    }
+  });
+</script>
+
 <style>
   .about {
     padding: var(--space-5) 0;
@@ -88,6 +110,24 @@
     font-size: 1.1rem;
     margin-bottom: var(--space-3);
     line-height: 1.7;
+  }
+
+  .read-more-btn {
+    background-color: transparent;
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    margin-top: var(--space-2);
+  }
+
+  .read-more-btn:hover {
+    background-color: var(--color-accent);
+    color: white;
   }
 
   .expertise h3 {
