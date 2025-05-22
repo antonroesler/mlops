@@ -5,14 +5,28 @@
   <h2 class="section-title">About Me</h2>
   <div class="about-content">
     <div class="bio">
-      <p>
-        Hi, I'm Anton Roesler, an MLOps Engineer focused on building scalable machine learning systems.
-        I help organizations bridge the gap between data science and production-ready ML applications.
-      </p>
-      <p>
-        With experience in both software engineering and machine learning, I specialize in creating
-        robust pipelines that enable teams to deploy models efficiently and reliably.
-      </p>
+      <div class="initial-content">
+        <p>
+          Hi, I'm Anton Roesler — an MLOps Engineer and Software Developer with a passion for building robust and scalable machine learning systems that work in the real world.
+        </p>
+        <p>
+          In my role at Bosch, I've worked across a wide range of machine learning use cases — helping product teams and data scientists move from experimentation to production-ready ML applications. My focus is on engineering solutions that don't just run in notebooks — but operate reliably at scale, in the cloud, under real-world conditions.
+        </p>
+      </div>
+      
+      <div class="expanded-content" style="display: none;">
+        <p>
+          From designing end-to-end ML pipelines and orchestrating workflows, to deploying multimodal inference services in production — I focus on practical and maintainable architectures. My experience includes timeseries, image-based, and sensor fusion use cases, especially in industrial and engineering domains.
+        </p>
+        <p>
+          I work best when collaborating closely with teams — translating use case requirements into clean, tested, and monitored ML services. I value simplicity, clear responsibilities, and measurable outcomes.
+        </p>
+        <p>
+          While I'm currently a solo engineer, I bring a strong generalist mindset, from infrastructure and backend development to ML modeling and CI/CD automation. I don't pretend to be a one-stop-shop — but if you're looking for someone who understands the complexities of ML systems and enjoys building software that lasts, we might be a good fit.
+        </p>
+      </div>
+      
+      <button class="read-more-btn">Read More</button>
     </div>
     
     <div class="expertise">
@@ -21,35 +35,64 @@
         <li class="expertise-item">
           <div class="expertise-icon">🔄</div>
           <div class="expertise-text">
-            <h4>CI/CD for ML</h4>
-            <p>Automated testing and deployment of machine learning models</p>
+            <h4>ML CI/CD</h4>
+            <p>Automated, testable pipelines for training, evaluation, approval workflows and deployment</p>
           </div>
         </li>
         <li class="expertise-item">
-          <div class="expertise-icon">📊</div>
+          <div class="expertise-icon">🧪</div>
           <div class="expertise-text">
             <h4>Model Monitoring</h4>
-            <p>Real-time tracking of model performance and data drift</p>
+            <p>Metrics, alerts, and drift detection for live models in production</p>
           </div>
         </li>
         <li class="expertise-item">
-          <div class="expertise-icon">🔧</div>
+          <div class="expertise-icon">☁️</div>
           <div class="expertise-text">
             <h4>ML Infrastructure</h4>
-            <p>Scalable architectures for training and inference</p>
+            <p>Design and implementation of scalable AWS- and Azure-based training and inference systems</p>
           </div>
         </li>
         <li class="expertise-item">
           <div class="expertise-icon">🐳</div>
           <div class="expertise-text">
             <h4>Containerization</h4>
-            <p>Docker-based workflows for reproducible ML</p>
+            <p>Docker-based development and reproducibility workflows, optimized for team collaboration</p>
+          </div>
+        </li>
+        <li class="expertise-item">
+          <div class="expertise-icon">🧱</div>
+          <div class="expertise-text">
+            <h4>Modular ML Systems</h4>
+            <p>Architecture of maintainable systems: decoupled data ingestion, preprocessing, and inference modules</p>
+          </div>
+        </li>
+        <li class="expertise-item">
+          <div class="expertise-icon">📦</div>
+          <div class="expertise-text">
+            <h4>Cloud-Native Deployment</h4>
+            <p>Use of Terraform, GitHub Actions, Sagemaker Unified Studio, EKS or Lambda for scalable operations</p>
           </div>
         </li>
       </ul>
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelector('.read-more-btn')?.addEventListener('click', function(e) {
+    const btn = e.target as HTMLButtonElement;
+    const expandedContent = document.querySelector('.expanded-content') as HTMLElement;
+    
+    if (expandedContent.style.display === 'none') {
+      expandedContent.style.display = 'block';
+      btn.textContent = 'Show Less';
+    } else {
+      expandedContent.style.display = 'none';
+      btn.textContent = 'Read More';
+    }
+  });
+</script>
 
 <style>
   .about {
@@ -79,6 +122,26 @@
 
   .bio p {
     font-size: 1.1rem;
+    margin-bottom: var(--space-3);
+    line-height: 1.7;
+  }
+
+  .read-more-btn {
+    background-color: transparent;
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    margin-top: var(--space-2);
+  }
+
+  .read-more-btn:hover {
+    background-color: var(--color-accent);
+    color: white;
   }
 
   .expertise h3 {

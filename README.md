@@ -1,6 +1,6 @@
-# Anton Roesler's Portfolio & Blog
+# Portfolio & Blog
 
-A personal portfolio and blog built with Astro, focusing on MLOps and machine learning engineering topics.
+My personal portfolio and blog built with Astro, focusing on MLOps and machine learning engineering topics.
 
 ## Project Structure
 
@@ -46,15 +46,15 @@ npm run build
 
 ```markdown
 ---
-title: "Your Post Title"
+title: "Post Title"
 date: "YYYY-MM-DD"
 tags: ["Tag1", "Tag2"]
 description: "Brief description of your post"
 ---
 
-## Your Content Here
+## Content Here
 
-Write your post content in Markdown...
+Post content in Markdown...
 ```
 
 ### Blog Post Guidelines
