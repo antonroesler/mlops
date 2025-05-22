@@ -12,9 +12,7 @@
   "dependencies": {
     "prismjs": "^1.29.0",
     "@astrojs/markdown-remark": "^4.3.0",
-    "@astrojs/mdx": "^2.1.1"
-  },
-  "devDependencies": {
-    "astro": "^5.7.14"
+    "@astrojs/mdx": "^2.1.1",
+    "astro": "^4.3.2"
   }
 }
