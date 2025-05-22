@@ -1,24 +1,10 @@
 ---
-const recentPosts = [
-  {
-    title: "Setting Up CI/CD Pipelines for ML Projects",
-    date: "2023-05-15",
-    slug: "setting-up-cicd-pipelines-for-ml-projects",
-    excerpt: "Learn how to automate the testing and deployment of machine learning models using modern CI/CD practices."
-  },
-  {
-    title: "Model Monitoring Best Practices",
-    date: "2023-06-22",
-    slug: "model-monitoring-best-practices",
-    excerpt: "Discover strategies to effectively monitor your machine learning models in production for drift and performance issues."
-  },
-  {
-    title: "Containerizing ML Workflows with Docker",
-    date: "2023-07-30",
-    slug: "containerizing-ml-workflows-with-docker",
-    excerpt: "A comprehensive guide to creating reproducible machine learning environments using Docker."
-  }
-];
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const recentPosts = posts
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
 ---
 
 <section class="section blog-preview">
@@ -32,10 +18,10 @@ const recentPosts = [
       <a href={`/blog/${post.slug}`} class="post-card">
         <article>
           <div class="post-meta">
-            <span class="post-date">{post.date}</span>
+            <span class="post-date">{post.data.date}</span>
           </div>
-          <h3 class="post-title">{post.title}</h3>
-          <p class="post-excerpt">{post.excerpt}</p>
+          <h3 class="post-title">{post.data.title}</h3>
+          <p class="post-excerpt">{post.data.description}</p>
           <span class="read-more">Read more →</span>
         </article>
       </a>
