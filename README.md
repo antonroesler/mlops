@@ -107,7 +107,3 @@ chmod +x infrastructure/setup.sh
 - Keep components small and focused
 - Test locally before deploying
 - Update dependencies regularly
-
-## License
-
-MIT License - See LICENSE file for details
