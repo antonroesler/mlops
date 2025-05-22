@@ -1,0 +1,122 @@
+---
+---
+
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="/">
+        <span class="logo-text mono" style="color: #9d4edd;">ANTON ROESLER</span>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li><a href="/blog" class="nav-link">Blog</a></li>
+      <li><a href="/projects" class="nav-link disabled">Projects</a></li>
+      <li><a href="/contact" class="nav-link disabled">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(11, 12, 27, 0.8);
+    backdrop-filter: blur(8px);
+    transition: background-color var(--transition-normal);
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--space-3);
+  }
+
+  .nav-link {
+    position: relative;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-normal);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .nav-link.disabled {
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .nav-link.disabled:hover::after {
+    width: 0;
+  }
+
+  /* Mobile Navigation */
+  @media (max-width: 768px) {
+    .nav {
+      flex-direction: column;
+      height: auto;
+      padding: var(--space-2) 0;
+      gap: var(--space-2);
+    }
+
+    .nav-links {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>
+
+<script>
+  // Add scroll behavior to change header background
+  const header = document.querySelector('.header');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.style.backgroundColor = 'rgba(11, 12, 27, 0.95)';
+    } else {
+      header.style.backgroundColor = 'rgba(11, 12, 27, 0.8)';
+    }
+  });
+
+  // Set active nav link based on current path
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (currentPath === linkPath || 
+        (linkPath !== '/' && currentPath.startsWith(linkPath))) {
+      link.classList.add('active');
+    }
+  });
+</script>
