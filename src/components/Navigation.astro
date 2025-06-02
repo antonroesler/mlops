@@ -89,14 +89,23 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
-    font-size: 1.2rem;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--color-text-primary);
     transition: transform var(--transition-fast);
   }
 
   .theme-toggle:hover {
     transform: scale(1.1);
+  }
+
+  .theme-toggle-icon {
+    font-size: 1.2rem;
+    line-height: 1;
   }
 
   /* Mobile Navigation */
