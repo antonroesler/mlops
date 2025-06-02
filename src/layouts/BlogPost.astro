@@ -1,19 +1,35 @@
 ---
 import Layout from './Layout.astro';
+import { getCollection } from 'astro:content';
 
 interface Props {
   title: string;
   date: string;
   tags?: string[];
   description?: string;
+  useCase?: string;
 }
 
-const { title, date, tags = [], description } = Astro.props;
+const { title, date, tags = [], description, useCase } = Astro.props;
+
+let useCaseData;
+if (useCase) {
+  const useCases = await getCollection('use-cases');
+  useCaseData = useCases.find(uc => uc.slug === useCase);
+}
 ---
 
 <Layout title={`${title} | Anton Rösler`} description={description}>
   <article class="blog-post">
     <header class="post-header">
+      {useCaseData && (
+        <div class="use-case-notice">
+          <p>
+            This article is part of the series: 
+            <a href={`/use-cases/${useCaseData.slug}`}>{useCaseData.data.title}</a>
+          </p>
+        </div>
+      )}
       <div class="post-meta">
         <time datetime={date}>{date}</time>
         <div class="post-tags">
@@ -39,6 +55,24 @@ const { title, date, tags = [], description } = Astro.props;
   .blog-post {
     max-width: var(--content-width);
     margin: 0 auto;
+  }
+
+  .use-case-notice {
+    background-color: var(--color-card-bg);
+    border-left: 4px solid var(--color-accent);
+    padding: var(--space-2);
+    margin-bottom: var(--space-3);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .use-case-notice p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+  }
+
+  .use-case-notice a {
+    font-weight: 500;
   }
 
   .post-header {
