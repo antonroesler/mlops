@@ -46,22 +46,40 @@ const {
   }
 
   :root {
-    /* Color Variables */
-    --color-bg: #0b0c1b;
-    --color-accent: #673ab7;
-    --color-accent-light: #7e57c2;
-    --color-text-primary: #ffffff;
-    --color-text-secondary: #9fa8da;
-    --color-card-bg: #13152e;
-    --color-code-bg: #1a1c35;
+    /* Dark Mode Colors */
+    --color-bg-dark: #0b0c1b;
+    --color-accent-dark: #673ab7;
+    --color-accent-light-dark: #7e57c2;
+    --color-text-primary-dark: #ffffff;
+    --color-text-secondary-dark: #9fa8da;
+    --color-card-bg-dark: #13152e;
+    --color-code-bg-dark: #1a1c35;
+
+    /* Light Mode Colors */
+    --color-bg-light: #ffffff;
+    --color-accent-light: #5c35a3;
+    --color-accent-light-light: #673ab7;
+    --color-text-primary-light: #1a1a1a;
+    --color-text-secondary-light: #666666;
+    --color-card-bg-light: #f5f5f5;
+    --color-code-bg-light: #f0f0f0;
+    
+    /* Default to dark theme */
+    --color-bg: var(--color-bg-dark);
+    --color-accent: var(--color-accent-dark);
+    --color-accent-light: var(--color-accent-light-dark);
+    --color-text-primary: var(--color-text-primary-dark);
+    --color-text-secondary: var(--color-text-secondary-dark);
+    --color-card-bg: var(--color-card-bg-dark);
+    --color-code-bg: var(--color-code-bg-dark);
     
     /* Spacing Variables (8px system) */
-    --space-1: 0.5rem;  /* 8px */
-    --space-2: 1rem;    /* 16px */
-    --space-3: 1.5rem;  /* 24px */
-    --space-4: 2rem;    /* 32px */
-    --space-5: 3rem;    /* 48px */
-    --space-6: 4rem;    /* 64px */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-5: 3rem;
+    --space-6: 4rem;
     
     /* Typography */
     --font-mono: 'Roboto Mono', monospace;
@@ -73,6 +91,16 @@ const {
     /* Animations */
     --transition-normal: 0.3s ease;
     --transition-fast: 0.15s ease;
+  }
+
+  html.light-mode {
+    --color-bg: var(--color-bg-light);
+    --color-accent: var(--color-accent-light);
+    --color-accent-light: var(--color-accent-light-light);
+    --color-text-primary: var(--color-text-primary-light);
+    --color-text-secondary: var(--color-text-secondary-light);
+    --color-card-bg: var(--color-card-bg-light);
+    --color-code-bg: var(--color-code-bg-light);
   }
 
   html {
@@ -171,3 +199,14 @@ const {
     margin-bottom: var(--space-5);
   }
 </style>
+
+<script>
+  // Theme management
+  const theme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.classList.toggle('light-mode', theme === 'light');
+
+  document.addEventListener('theme-toggle', () => {
+    const isLight = document.documentElement.classList.toggle('light-mode');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+</script>
