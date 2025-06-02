@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const useCases = await getCollection('use-cases');
+const sortedUseCases = useCases.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title="Use Cases | Anton Roesler" description="Comprehensive MLOps and machine learning engineering use cases and tutorials">
+  <div class="use-cases">
+    <div class="header">
+      <h1>Use Cases</h1>
+      <p class="text-secondary">In-depth guides and tutorials for real-world MLOps scenarios</p>
+    </div>
+
+    <div class="use-cases-grid">
+      {sortedUseCases.map(useCase => (
+        <a href={`/use-cases/${useCase.slug}`} class="use-case-card">
+          <h2>{useCase.data.title}</h2>
+          <p>{useCase.data.description}</p>
+          <span class="read-more">Explore →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .use-cases {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: var(--space-5);
+  }
+
+  .use-cases-grid {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .use-case-card {
+    background-color: var(--color-card-bg);
+    padding: var(--space-3);
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  .use-case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .use-case-card h2 {
+    margin-bottom: var(--space-2);
+    font-size: 1.5rem;
+  }
+
+  .use-case-card p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+  }
+
+  .read-more {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .use-case-card:hover .read-more {
+    color: var(--color-accent-light);
+  }
+</style>
