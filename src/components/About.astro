@@ -81,8 +81,8 @@
 
 <script>
   document.querySelector('.read-more-btn')?.addEventListener('click', function(e) {
-    const btn = e.target as HTMLButtonElement;
-    const expandedContent = document.querySelector('.expanded-content') as HTMLElement;
+    const btn = /** @type {HTMLButtonElement} */(e.target);
+    const expandedContent = /** @type {HTMLElement} */(document.querySelector('.expanded-content'));
     
     if (expandedContent.style.display === 'none') {
       expandedContent.style.display = 'block';
