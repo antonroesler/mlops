@@ -99,6 +99,13 @@ Post content in Markdown...
    - Uploads to S3
    - Invalidates CloudFront cache
 
+### Versioning
+
+Each deployment is assigned an incremental version number (`v1`, `v2`, ...)
+based on the commit count of the `main` branch. The value is exposed during the
+build as the `PUBLIC_DEPLOY_VERSION` environment variable and shown in the page
+footer for quick verification.
+
 ## Development Guidelines
 
 - Follow Astro's best practices
