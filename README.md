@@ -77,13 +77,12 @@ Post content in Markdown...
 
 ### Setup
 
-1. Run the infrastructure setup script:
-```bash
-chmod +x infrastructure/setup.sh
-./infrastructure/setup.sh
-```
+1. Provision an S3 bucket and optional CloudFront distribution. Infrastructure
+   is managed outside this repository (for example via Terraform or the AWS
+   console).
 
-2. Note the CloudFront distribution domain name from the output
+2. Note the CloudFront distribution domain name from the AWS console or your
+   provisioning output.
 
 3. Configure GitHub repository secrets:
    - `AWS_ACCESS_KEY_ID`
