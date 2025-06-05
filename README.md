@@ -101,8 +101,10 @@ Post content in Markdown...
 
 ### Versioning
 
-Each deployment is assigned an incremental version number (`v1`, `v2`, ...)
-based on the commit count of the `main` branch. The value is exposed during the
+Each deployment receives an incremental version number (`v1`, `v2`, ...)
+derived from the total commit count of the `main` branch. The GitHub Actions
+workflow checks out the repository with `fetch-depth: 0` to ensure the full
+history is available for an accurate count. This value is exposed during the
 build as the `PUBLIC_DEPLOY_VERSION` environment variable and shown in the page
 footer for quick verification.
 
