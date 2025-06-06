@@ -1,6 +1,6 @@
 ---
 title: "Building an ETL Pipeline with AWS Glue"
-date: "2025-06-02"
+date: "2025-06-04"
 tags: ["AWS", "Demo Use Case"]
 description: "Walkthrough demo use case of generating synthetic data for a ML Pipeline"
 useCase: "mlops-pipeline"
