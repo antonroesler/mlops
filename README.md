@@ -2,6 +2,8 @@
 
 My personal portfolio and blog built with Astro, focusing on MLOps and machine learning engineering topics.
 
+[blog.antonroesler.com](https://blog.antonroesler.com)
+
 ## Project Structure
 
 ```
